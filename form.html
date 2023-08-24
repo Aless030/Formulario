@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Formulario sin CSS</title>
+    <script>
+      
+
+      function validar() {
+        const nombreInput = document.getElementById("nombre" && "apellido"&& "apellido1");
+        const direccionInput = document.getElementById("direccion");
+        const telefonoFijoInput = document.getElementById("telefonoFijo");
+        const telefonoMovilInput = document.getElementById("telefonoMovil");
+        const correoInput = document.getElementById("correo");
+        if (!/^[A-Z ]{1,50}$/.test(nombreInput.value)) {
+                alert("Ingrese un nombre,apellidos válidos (hasta 50 caracteres en mayúsculas y solo letras)");
+                return false;
+            }
+        if (!/^[A-Z ]{1,100}$/.test(direccionInput.value)) {
+            alert("Ingrese una dirección válida (hasta 100 caracteres en mayúsculas)");
+            return false;
+        }
+        if (!/^\d{3} - \d{7}$/.test(telefonoFijoInput.value)) {
+            alert("Ingrese un Teléfono Móvil válido (formato: XXX - 1234567)");
+            return false;
+        }
+        if (!/^\d{3} - \d{7}$/.test(telefonoMovilInput.value)) {
+            alert("Ingrese un Teléfono Móvil válido (formato: XXX - 1234567)");
+            return false;
+        }
+        if (!/^[\w.-]+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/.test(correoInput.value)) {
+            alert("Ingrese un Correo Electrónico válido");
+            return false;
+        }
+        return true;
+      }
+    </script>
+  </head>
+  <body>
+    <table border="5" cellspacing="10" cellpadding="10" align="center">
+      <td>
+        <form method="post" action="post.php" onsubmit="return validar()">
+          Nombre :
+          <input
+            type="text"
+            name="name"
+            maxlength="50"
+            id="nombre"
+        
+            
+          />
+          <br /><br />
+          Apellido Paterno : <input type="text" id="apellido" name="Ap" />
+          <br /><br />
+          Apellido Materno : <input type="text" id="apellido1" name="Am" required />
+          <br /><br />
+          C.I : <input type="number" name="CI" required /> <br /><br />
+          Direccion:
+          <input type="text" name="Location" id="direccion" maxlength="100" required />
+          <br /><br />
+          Facebook : <input type="text" name="Facebook" required /> <br /><br />
+          Fecha de nacimiento :
+          <input
+            type="date"
+            name="Fecha"
+            min="1900-01-01"
+            
+            required
+          />
+          <br /><br />
+          Telefono Fijo: 
+          <input type="text" name="telefonoFijo" id="telefonoFijo" required>
+            
+           <br><br> 
+           Telefono Movil: 
+          <input type="text" name="telefonoMovil" id="telefonoMovil" required>
+            
+           <br><br> 
+          Pais : 
+          <select name="Pais" id="Pais" required>
+            <option value="">Seleccione</option>
+            <option value="Cbba">Cbba</option>
+            <option value="Santa Cruz">Santa Cruz</option>
+           </select>
+           <br><br> 
+         
+          Correo : <input type="text" name="correo" id="correo" required /> 
+          <br /><br />
+          Carrera : <select name="Carrera" id="Carrera" required>
+            <option value="">Seleccione</option>
+            <option value="Ing.Sistemas">Ing.Sistemas</option>
+            <option value="Ing.Comercial">Ing.Comercial</option>
+           </select>
+           <br><br> 
+
+          <input type="submit" />
+        </form>
+      </td>
+    </table>
+  </body>
+</html>
